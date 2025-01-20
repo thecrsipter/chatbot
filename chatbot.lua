@@ -1,6 +1,7 @@
 local Players = game:GetService("Players")
+local ChatService = game:GetService("Chat")
 
--- Chatbot responses
+-- Define the chatbot's responses
 local chatbotResponses = {
     ["hello"] = "Hi there! How can I help you today?",
     ["how are you"] = "I'm doing great, thank you for asking! How about you?",
@@ -17,7 +18,7 @@ local function onPlayerChat(player, message)
     local response = chatbotResponses[messageLower] or "Sorry, I don't understand that. Try asking something else."
     
     -- Send the response back to the client
-    game:GetService("Chat"):Chat(player.Character, response, Enum.ChatColor.Red)
+    ChatService:Chat(player.Character, response, Enum.ChatColor.Red)
 end
 
 -- Connect the Chatted event for each player that joins
